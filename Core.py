@@ -3,7 +3,7 @@ import tensorflow as tf
 from tensorflow.keras import layers, models
 
 # 1. Generate Math Dataset (Inputs: Num1, Num2, Op_Code -> Output: Result)
-def generate_math_data(num_samples=10000):
+def generate_math_data(num_samples=100000):
     X = []
     y = []
     for _ in range(num_samples):
