@@ -1,11 +1,11 @@
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras import layers, models
+from keras import layers, models
 from sklearn.preprocessing import StandardScaler
 
 # 1. Generate Math Dataset with better structure
 def generate_math_data(num_samples=100000):
-    X = []
+    x = []
     y = []
     for _ in range(num_samples):
         n1 = np.random.uniform(1, 100)
@@ -22,10 +22,10 @@ def generate_math_data(num_samples=100000):
         else: 
             res = n1 / n2 if n2 != 0 else n1  # Avoid division by zero
         
-        X.append([n1, n2, op])
+        x.append([n1, n2, op])
         y.append(res)
     
-    return np.array(X), np.array(y)
+    return np.array(x), np.array(y)
 
 # 2. Generate data
 print("Generating dataset...")
@@ -59,7 +59,7 @@ model = models.Sequential([
 
 # 6. Compile with better settings
 model.compile(
-    optimizer=tf.keras.optimizers.Adam(learning_rate=0.001),
+    optimizer= tf.keras.optimizers.Adam(learning_rate=0.001),
     loss='mse',
     metrics=['mae']
 )
